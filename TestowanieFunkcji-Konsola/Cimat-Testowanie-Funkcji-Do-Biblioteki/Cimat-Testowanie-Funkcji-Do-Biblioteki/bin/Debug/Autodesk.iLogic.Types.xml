@@ -1,0 +1,1552 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Autodesk.iLogic.Types</name>
+    </assembly>
+    <members>
+        <member name="F:Autodesk.InventorBuilder.VersionInfo.AssemblyVersion">
+            <summary>
+            Inventor Build Number Centralization(for C# projects)
+            This holds central version numbers for .NET assemblies.
+            </summary>
+        </member>
+        <member name="F:Autodesk.InventorBuilder.VersionInfo.CopyRightFrom1996">
+            <summary>
+            Inventor Copyright Year Centralization(for C# projects)
+            To update the copyright year for all executables and About dialogs, 
+            we need to change the end year in below block, for example, 
+            for Ada release, replace all end years with 2020.
+            </summary>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.ComponentArgument">
+            <summary>
+            Wrapper for a component occurrence, occurrence name, or occurrence path based on occurrence names.
+            </summary>
+            <remarks>
+            An object of this type can hold one of:
+            <list type="bullet">
+              <item>A single component name (e.g.: "Part:1").</item> 
+              <item>A path to a component in a subassembly (e.g.: {"Subassembly:1", "Part:1"})</item> 
+              <item>An empty string (or Nothing). This refers not to a component of the assembly, but 
+              rather to the assembly itself.</item> 
+              <item>A <see cref="T:Autodesk.iLogic.Types.ManagedComponentOccurrence"/> object.</item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.ComponentArgument.Name">
+            <summary>
+            Gets the name.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.ComponentArgument.Occurrence">
+            <summary>
+            Gets the component occurrence.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.ComponentArgument.Path">
+            <summary>
+            Gets the path items.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentArgument.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentArgument.#ctor(Autodesk.iLogic.Types.ManagedComponentOccurrence)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="occurrence"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentArgument.#ctor(System.String[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="pathItems"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentArgument.op_Implicit(System.String)~Autodesk.iLogic.Types.ComponentArgument">
+            <summary>
+            Converts a name.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentArgument.op_Implicit(Autodesk.iLogic.Types.ManagedComponentOccurrence)~Autodesk.iLogic.Types.ComponentArgument">
+            <summary>
+            Converts a component occurrence.
+            </summary>
+            <param name="occurrence"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentArgument.op_Implicit(System.String[])~Autodesk.iLogic.Types.ComponentArgument">
+            <summary>
+            Converts an array of items.
+            </summary>
+            <param name="pathItems"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentArgument.GetComponentArgumentFromObject(System.Object)">
+            <summary>
+            Converts a general object to a ComponentArgument object.
+            </summary>
+            <param name="obj"></param>
+            <returns>Nothing if the object is not convertible.</returns>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentArgument.GetDisplayName(Autodesk.iLogic.Types.ComponentArgument)">
+            <summary>
+            Gets the component name. This might be a path. This function is recommended for use only in a message.
+            </summary>
+            <param name="componentArgument"></param>
+            <returns>The component name or path.</returns>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentArgument.IsContainingAssembly(Autodesk.iLogic.Types.ComponentArgument)">
+            <summary>
+            Tests to see if the component argument actually refers to the containing assembly, rather than a component within it.
+            </summary>
+            <param name="component">The component argument.</param>
+            <returns>True if the argument refers to the containing assembly.</returns>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.ComponentOrPattern">
+            <summary>
+            Wrapper for a component occurrence, pattern, or a name of either one of those.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.ComponentOrPattern.Name">
+            <summary>
+            Gets the name.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.ComponentOrPattern.Occurrence">
+            <summary>
+            Gets the component occurrence.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.ComponentOrPattern.Pattern">
+            <summary>
+            Gets the pattern.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.ComponentOrPattern.Items">
+            <summary>
+            Gets the items, if more than one.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentOrPattern.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentOrPattern.#ctor(Autodesk.iLogic.Types.ManagedComponentOccurrence)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="occurrence"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentOrPattern.#ctor(Autodesk.iLogic.Types.ManagedPattern)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="pattern"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentOrPattern.#ctor(System.Collections.Generic.IEnumerable{Autodesk.iLogic.Types.ComponentOrPattern})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="items"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentOrPattern.#ctor(System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            Construct from a list of objects.
+            If one of the items is not convertible to a ComponentOrPattern, an exception will be thrown.
+            </summary>
+            <param name="items"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentOrPattern.op_Implicit(System.String)~Autodesk.iLogic.Types.ComponentOrPattern">
+            <summary>
+            Convert a name.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentOrPattern.op_Implicit(Autodesk.iLogic.Types.ManagedComponentOccurrence)~Autodesk.iLogic.Types.ComponentOrPattern">
+            <summary>
+            Convert a component occurrence.
+            </summary>
+            <param name="occurrence"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentOrPattern.op_Implicit(Autodesk.iLogic.Types.ManagedPattern)~Autodesk.iLogic.Types.ComponentOrPattern">
+            <summary>
+            Convert a component pattern.
+            </summary>
+            <param name="pattern"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentOrPattern.op_Implicit(Autodesk.iLogic.Types.ComponentOrPattern[])~Autodesk.iLogic.Types.ComponentOrPattern">
+            <summary>
+            Convert an array of items.
+            </summary>
+            <param name="items"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentOrPattern.op_Implicit(System.Object[])~Autodesk.iLogic.Types.ComponentOrPattern">
+            <summary>
+            Convert an array of objects. If one of the items is not convertible to a ComponentOrPattern, an exception will be thrown.
+            </summary>
+            <param name="items"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ComponentOrPattern.GetItems">
+            <summary>
+            Gets all items.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.ComponentOrPattern.IsNull">
+            <summary>
+            Returns true if this object contains no data.
+            </summary>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.DocumentUnitsGeometry">
+            <summary>
+            Base class for points, vectors, and matrices in document units.
+            </summary>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.DocumentUnitsMatrix">
+            <summary>
+            Provides properties and functions for a transformation matrix with coordinates in document units.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.#ctor(Inventor.InventorServerObject,Inventor.UnitsOfMeasure)">
+            <summary>
+            Constructor of DocumentUnitsMatrix.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.#ctor(Inventor.InventorServerObject,Inventor.UnitsOfMeasure,System.Double[])">
+            <summary>
+            Constructor of DocumentUnitsMatrix.
+            </summary>
+            <param name="inventorServer"></param>
+            <param name="unitsOfMeasure"></param>
+            <param name="cells"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.#ctor(Inventor.InventorServerObject,Inventor.UnitsOfMeasure,Inventor.Matrix)">
+            <summary>
+            Constructor of DocumentUnitsMatrix.
+            </summary>
+            <param name="inventorServer"></param>
+            <param name="unitsOfMeasure"></param>
+            <param name="matrix">Inventor matrix in Inventor internal units</param>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsMatrix.InDatabaseUnits">
+            <summary>
+            Gets or sets the Inventor matrix in Inventor internal units.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsMatrix.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the value of a cell in the matrix.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsMatrix.Determinant">
+            <summary>
+            Gets the determinant of this matrix.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsMatrix.Translation">
+            <summary>
+            Gets the translation portion of the matrix.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsMatrix.Autodesk#iLogic#Types#PointOrMatrix#Point">
+            <summary>
+            Get property of PointOrMatrix. Return null.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsMatrix.Autodesk#iLogic#Types#PointOrMatrix#Matrix">
+            <summary>
+            Get property of PointOrMatrix. Return this matrix.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.Copy">
+            <summary>
+            Creates a copy of this Matrix object. The result is entirely independent and can be edited without affecting the original Matrix object.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.GetCoordinateSystem(Autodesk.iLogic.Types.DocumentUnitsPoint@,Autodesk.iLogic.Types.DocumentUnitsVector@,Autodesk.iLogic.Types.DocumentUnitsVector@,Autodesk.iLogic.Types.DocumentUnitsVector@)">
+            <summary>
+            Gets the coordinate system that this matrix maps to from the standard coordinate system.
+            </summary>
+            <param name="origin">Output Point object that defines the origin of the coordinate system.</param>
+            <param name="xAxis">Output Vector object that defines the X-axis vector of the coordinate system.</param>
+            <param name="yAxis">Output Vector object that defines the Y-axis vector of the coordinate system.</param>
+            <param name="zAxis">Output Vector object that defines the Z-axis vector of the coordinate system.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.GetMatrixData(System.Double[]@)">
+            <summary>
+            Gets the data defining this matrix.
+            </summary>
+            <param name="cells">Output: Double array that will contain the matrix cell values.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.Invert">
+            <summary>
+            Inverts this matrix.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.IsEqualTo(Autodesk.iLogic.Types.DocumentUnitsMatrix,System.Double)">
+            <summary>
+            Compares this matrix for equality with the specified matrix.
+            </summary>
+            <param name="matrix">Input Matrix object that specifies matrix to compare.</param>
+            <param name="tolerance">Input Double that specifies the tolerance to be used when determining whether the matrices are equal. This Is an optional argument whose default value Is 0.0.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.PostMultiplyBy(Autodesk.iLogic.Types.DocumentUnitsMatrix)">
+            <summary>
+            Method that post-multiplies this matrix by the specified matrix, setting this matrix to the result.
+            </summary>
+            <param name="matrix">Input Matrix object that specifies the matrix to post-multiply by.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.PreMultiplyBy(Autodesk.iLogic.Types.DocumentUnitsMatrix)">
+            <summary>
+            Method that pre-multiplies this matrix by the specified matrix, setting this matrix to the result.
+            </summary>
+            <param name="matrix">Input Matrix object that specifies the matrix to pre-multiply by.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.PutMatrixData(System.Double[])">
+            <summary>
+            Method that sets the data defining this matrix.
+            </summary>
+            <param name="cells">Input Double that specifies the entity's coordinates.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.SetCoordinateSystem(Autodesk.iLogic.Types.DocumentUnitsPoint,Autodesk.iLogic.Types.DocumentUnitsVector,Autodesk.iLogic.Types.DocumentUnitsVector,Autodesk.iLogic.Types.DocumentUnitsVector)">
+            <summary>
+            Sets this matrix to be the matrix that maps from the standard coordinate system to the specified coordinate system.
+            </summary>
+            <param name="origin">Input Point object that defines the origin of the coordinate system.</param>
+            <param name="xAxis">Input Vector object that defines the X-axis vector of the coordinate system.</param>
+            <param name="yAxis">Input Vector object that defines the Y-axis vector of the coordinate system.</param>
+            <param name="zAxis">Input Vector object that defines the Z-axis vector of the coordinate system.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.SetToAlignCoordinateSystems(Autodesk.iLogic.Types.DocumentUnitsPoint,Autodesk.iLogic.Types.DocumentUnitsVector,Autodesk.iLogic.Types.DocumentUnitsVector,Autodesk.iLogic.Types.DocumentUnitsVector,Autodesk.iLogic.Types.DocumentUnitsPoint,Autodesk.iLogic.Types.DocumentUnitsVector,Autodesk.iLogic.Types.DocumentUnitsVector,Autodesk.iLogic.Types.DocumentUnitsVector)">
+            <summary>
+            Sets this matrix to be the matrix that maps from the 'from' coordinate system to the 'to' coordinate system.
+            </summary>
+            <param name="fromOrigin">Input Point object that defines the origin to map the coordinate system from.</param>
+            <param name="fromXAxis">Input Vector object that defines the X-axis to map the coordinate system from.</param>
+            <param name="fromYAxis">Input Vector object that defines the Y-axis to map the coordinate system from.</param>
+            <param name="fromZAxis">Input Vector object that defines the Z-axis to map the coordinate system from.</param>
+            <param name="toOrigin">Input Point object that defines the origin to map the coordinate system to.</param>
+            <param name="toXAxis">Input Vector object that defines the X-axis to map the coordinate system to.</param>
+            <param name="toYAxis">Input Vector object that defines the Y-axis to map the coordinate system to.</param>
+            <param name="toZAxis">Input Vector object that defines the Z-axis to map the coordinate system to.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.SetToIdentity">
+            <summary>
+            Sets this matrix to the identity matrix.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.SetToRotateTo(Autodesk.iLogic.Types.DocumentUnitsVector,Autodesk.iLogic.Types.DocumentUnitsVector,Autodesk.iLogic.Types.DocumentUnitsVector)">
+            <summary>
+            Sets to the matrix of rotation that would align the 'from' vector with the 'to' vector. The optional Axis argument may be used when the two vectors are parallel and in opposite directions to specify a specific solution, but is otherwise ignored.
+            </summary>
+            <param name="fromVector">Input Vector object to align from.</param>
+            <param name="toVector">Input Vector object to align to.</param>
+            <param name="axis">Input Vector object. This Is an optional argument whose default value Is 0.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.SetToRotation(System.Double,Autodesk.iLogic.Types.DocumentUnitsVector,Autodesk.iLogic.Types.DocumentUnitsPoint)">
+            <summary>
+            Sets this matrix to the matrix of rotation by the specified angle, through the specified origin, around the specified axis.
+            </summary>
+            <param name="angle">Input Double that specifies the angle of rotation in document units.</param>
+            <param name="axis">Input Vector object.</param>
+            <param name="centerPoint">Input Point object that specifies the origin.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.SetTranslation(Autodesk.iLogic.Types.DocumentUnitsVector,System.Boolean)">
+            <summary>
+            Sets the translation portion of the matrix. If the optional ResetRotation flag is True, the rotation portion of the matrix is reset to identity.
+            </summary>
+            <param name="translation">Input to subtract.</param>
+            <param name="resetRotation">Optional input Boolean that indicates whether to reset to rotation portion of the matrix to identity. This Is an optional argument whose default value Is False.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix.TransformBy(Autodesk.iLogic.Types.DocumentUnitsMatrix)">
+            <summary>
+            Method that sets this matrix to the result of this transformation followed by the specified transformation (a pre-multiplication of this matrix by the specified matrix).
+            </summary>
+            <param name="matrix">Input Matrix object that specifies the matrix to transform by.</param>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.DocumentUnitsMatrix2d">
+            <summary>
+            Provides properties and functions for a two-dimensional transformation matrix with coordinates in document units.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.#ctor(Inventor.InventorServerObject,Inventor.UnitsOfMeasure)">
+            <summary>
+            Constructor of DocumentUnitsMatrix2d.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.#ctor(Inventor.InventorServerObject,Inventor.UnitsOfMeasure,System.Double[])">
+            <summary>
+            Constructor of DocumentUnitsMatrix2d.
+            </summary>
+            <param name="inventorServer"></param>
+            <param name="unitsOfMeasure"></param>
+            <param name="cells"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.#ctor(Inventor.InventorServerObject,Inventor.UnitsOfMeasure,Inventor.Matrix2d)">
+            <summary>
+            Constructor of DocumentUnitsMatrix2d.
+            </summary>
+            <param name="inventorServer"></param>
+            <param name="unitsOfMeasure"></param>
+            <param name="matrix">Inventor matrix in Inventor internal units</param>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.InDatabaseUnits">
+            <summary>
+            Gets or sets the Inventor matrix in Inventor internal units.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the value of a cell in the matrix.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.Determinant">
+            <summary>
+            Gets the determinant of this matrix.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.Translation">
+            <summary>
+            Gets the translation portion of the matrix.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.Copy">
+            <summary>
+            Creates a copy of this Matrix object. The result is entirely independent and can be edited without affecting the original Matrix object.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.GetCoordinateSystem(Autodesk.iLogic.Types.DocumentUnitsPoint2d@,Autodesk.iLogic.Types.DocumentUnitsVector2d@,Autodesk.iLogic.Types.DocumentUnitsVector2d@)">
+            <summary>
+            Gets the coordinate system that this matrix maps to from the standard coordinate system.
+            </summary>
+            <param name="origin">Output Point object that defines the origin of the coordinate system.</param>
+            <param name="xAxis">Output Vector object that defines the X-axis vector of the coordinate system.</param>
+            <param name="yAxis">Output Vector object that defines the Y-axis vector of the coordinate system.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.GetMatrixData(System.Double[]@)">
+            <summary>
+            Gets the data defining this matrix.
+            </summary>
+            <param name="cells">Output: Double array that will contain the matrix cell values.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.Invert">
+            <summary>
+            Inverts this matrix.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.IsEqualTo(Autodesk.iLogic.Types.DocumentUnitsMatrix2d,System.Double)">
+            <summary>
+            Compares this matrix for equality with the specified matrix.
+            </summary>
+            <param name="matrix">Input Matrix object that specifies matrix to compare.</param>
+            <param name="tolerance">Input Double that specifies the tolerance to be used when determining whether the matrices are equal. This Is an optional argument whose default value Is 0.0.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.PostMultiplyBy(Autodesk.iLogic.Types.DocumentUnitsMatrix2d)">
+            <summary>
+            Method that post-multiplies this matrix by the specified matrix, setting this matrix to the result.
+            </summary>
+            <param name="matrix">Input Matrix object that specifies the matrix to post-multiply by.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.PreMultiplyBy(Autodesk.iLogic.Types.DocumentUnitsMatrix2d)">
+            <summary>
+            Method that pre-multiplies this matrix by the specified matrix, setting this matrix to the result.
+            </summary>
+            <param name="matrix">Input Matrix object that specifies the matrix to pre-multiply by.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.PutMatrixData(System.Double[])">
+            <summary>
+            Method that sets the data defining this matrix.
+            </summary>
+            <param name="cells">Input Double that specifies the entity's coordinates.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.SetCoordinateSystem(Autodesk.iLogic.Types.DocumentUnitsPoint2d,Autodesk.iLogic.Types.DocumentUnitsVector2d,Autodesk.iLogic.Types.DocumentUnitsVector2d)">
+            <summary>
+            Sets this matrix to be the matrix that maps from the standard coordinate system to the specified coordinate system.
+            </summary>
+            <param name="origin">Input Point object that defines the origin of the coordinate system.</param>
+            <param name="xAxis">Input Vector object that defines the X-axis vector of the coordinate system.</param>
+            <param name="yAxis">Input Vector object that defines the Y-axis vector of the coordinate system.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.SetToAlignCoordinateSystems(Autodesk.iLogic.Types.DocumentUnitsPoint2d,Autodesk.iLogic.Types.DocumentUnitsVector2d,Autodesk.iLogic.Types.DocumentUnitsVector2d,Autodesk.iLogic.Types.DocumentUnitsPoint2d,Autodesk.iLogic.Types.DocumentUnitsVector2d,Autodesk.iLogic.Types.DocumentUnitsVector2d)">
+            <summary>
+            Sets this matrix to be the matrix that maps from the 'from' coordinate system to the 'to' coordinate system.
+            </summary>
+            <param name="fromOrigin">Input Point object that defines the origin to map the coordinate system from.</param>
+            <param name="fromXAxis">Input Vector object that defines the X-axis to map the coordinate system from.</param>
+            <param name="fromYAxis">Input Vector object that defines the Y-axis to map the coordinate system from.</param>
+            <param name="toOrigin">Input Point object that defines the origin to map the coordinate system to.</param>
+            <param name="toXAxis">Input Vector object that defines the X-axis to map the coordinate system to.</param>
+            <param name="toYAxis">Input Vector object that defines the Y-axis to map the coordinate system to.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.SetToIdentity">
+            <summary>
+            Sets this matrix to the identity matrix.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.SetToRotateTo(Autodesk.iLogic.Types.DocumentUnitsVector2d,Autodesk.iLogic.Types.DocumentUnitsVector2d)">
+            <summary>
+            Sets to the matrix of rotation that would align the 'from' vector with the 'to' vector. The optional Axis argument may be used when the two vectors are parallel and in opposite directions to specify a specific solution, but is otherwise ignored.
+            </summary>
+            <param name="fromVector">Input Vector object to align from.</param>
+            <param name="toVector">Input Vector object to align to.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.SetToRotation(System.Double,Autodesk.iLogic.Types.DocumentUnitsPoint2d)">
+            <summary>
+            Sets this matrix to the matrix of rotation by the specified angle, through the specified origin, around the specified axis.
+            </summary>
+            <param name="angle">Input Double that specifies the angle of rotation in document units.</param>
+            <param name="centerPoint">Input Point object that specifies the origin.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.SetTranslation(Autodesk.iLogic.Types.DocumentUnitsVector2d,System.Boolean)">
+            <summary>
+            Sets the translation portion of the matrix. If the optional ResetRotation flag is True, the rotation portion of the matrix is reset to identity.
+            </summary>
+            <param name="translation">Input to subtract.</param>
+            <param name="resetRotation">Optional input Boolean that indicates whether to reset to rotation portion of the matrix to identity. This Is an optional argument whose default value Is False.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsMatrix2d.TransformBy(Autodesk.iLogic.Types.DocumentUnitsMatrix2d)">
+            <summary>
+            Method that sets this matrix to the result of this transformation followed by the specified transformation (a pre-multiplication of this matrix by the specified matrix).
+            </summary>
+            <param name="matrix">Input Matrix object that specifies the matrix to transform by.</param>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.DocumentUnitsPoint">
+            <summary>
+            Provides properties, functions, and operators for a point with coordinates in document units.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint.#ctor(Inventor.InventorServerObject,Inventor.UnitsOfMeasure,System.Double,System.Double,System.Double)">
+            <summary>
+            Constructor of DocumentUnitsPoint.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint.#ctor(Inventor.InventorServerObject,Inventor.UnitsOfMeasure,Inventor.Point)">
+            <summary>
+            Constructor of DocumentUnitsPoint.
+            </summary>
+            <param name="inventorServer"></param>
+            <param name="unitsOfMeasure"></param>
+            <param name="point">Inventor point in Inventor internal units</param>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsPoint.InDatabaseUnits">
+            <summary>
+            Gets or sets the point in Inventor internal database units (centimeters).
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsPoint.X">
+            <summary>
+            Gets or sets the X coordinate.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsPoint.Y">
+            <summary>
+            Gets or sets the Y coordinate.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsPoint.Z">
+            <summary>
+            Gets or sets the Z coordinate.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsPoint.Autodesk#iLogic#Types#PointOrMatrix#Point">
+            <summary>
+            Get property of PointOrMatrix. Return this point.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsPoint.Autodesk#iLogic#Types#PointOrMatrix#Matrix">
+            <summary>
+            Get property of PointOrMatrix. Return null.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint.op_Addition(Autodesk.iLogic.Types.DocumentUnitsPoint,Autodesk.iLogic.Types.DocumentUnitsVector)">
+            <summary>
+            Translate point by vector.
+            Returns a point that is equivalent to the result of translating the point by the vector.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint.op_Subtraction(Autodesk.iLogic.Types.DocumentUnitsPoint,Autodesk.iLogic.Types.DocumentUnitsVector)">
+            <summary>
+            Translate point by -vector.
+            Returns a point that is equivalent to the result of translating the point by the -vector.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint.op_Subtraction(Autodesk.iLogic.Types.DocumentUnitsPoint,Autodesk.iLogic.Types.DocumentUnitsPoint)">
+            <summary>
+            Get translate vector between two points
+            This operator returns a vector which is equivalent to the translation that takes pointA to pointB.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint.Copy">
+            <summary>
+            Creates a copy of this Point object. The result is entirely independent and can be edited without affecting the original Point object.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint.DistanceTo(Autodesk.iLogic.Types.DocumentUnitsPoint)">
+            <summary>
+            Determine the distance between this point and the specified point.
+            </summary>
+            <param name="point">Input object that specifies the point.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint.GetPointData(System.Double[]@)">
+            <summary>
+             Gets the coordinates of the point.
+             </summary>
+            <param name="coords">Output: Double array that will contain the coordinates.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint.IsEqualTo(Autodesk.iLogic.Types.DocumentUnitsPoint,System.Double)">
+            <summary>
+            Compares this point for equality with the specified point.
+            </summary>
+            <param name="point">Input Point object that specifies the coordinate to compare.</param>
+            <param name="tolerance">Input Double that specifies the tolerance to be used when determining whether the points are equal. This Is an optional argument whose default value Is 0.0.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint.PutPointData(System.Double[]@)">
+            <summary>
+            Method that sets the data defining this point.
+            </summary>
+            <param name="coords">Input Double that specifies the entity's coordinates.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint.TransformBy(Autodesk.iLogic.Types.DocumentUnitsMatrix)">
+            <summary>
+            Transform this point by the specified matrix.
+            </summary>
+            <param name="matrix">Input Matrix object that specifies the matrix to transform by.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint.TranslateBy(Autodesk.iLogic.Types.DocumentUnitsVector)">
+            <summary>
+            Translate this point by the specified vector.
+            </summary>
+            <param name="vector">Input Vector object that specifies the vector to translate by.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint.VectorTo(Autodesk.iLogic.Types.DocumentUnitsPoint)">
+            <summary>
+            Gets the vector of translation between this point and the specified point.
+            </summary>
+            <param name="point">Input object that specifies the point.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint.ToString">
+            <summary>
+            Returns a string representation of this point.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.DocumentUnitsPoint2d">
+            <summary>
+            Provides properties, functions, and operators for a two-dimensional point with coordinates in document units.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint2d.#ctor(Inventor.InventorServerObject,Inventor.UnitsOfMeasure,System.Double,System.Double)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint2d.#ctor(Inventor.InventorServerObject,Inventor.UnitsOfMeasure,Inventor.Point2d)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="inventorServer"></param>
+            <param name="unitsOfMeasure"></param>
+            <param name="point2d">Inventor point in Inventor internal units</param>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsPoint2d.InDatabaseUnits">
+            <summary>
+            Gets or sets the point in Inventor internal database units (centimeters).
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsPoint2d.X">
+            <summary>
+            Gets or sets the X coordinate.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsPoint2d.Y">
+            <summary>
+            Gets or sets the Y coordinate.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint2d.op_Addition(Autodesk.iLogic.Types.DocumentUnitsPoint2d,Autodesk.iLogic.Types.DocumentUnitsVector2d)">
+            <summary>
+            Translate point by vector.
+            Returns a point that is equivalent to the result of translating the point by the vector.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint2d.op_Subtraction(Autodesk.iLogic.Types.DocumentUnitsPoint2d,Autodesk.iLogic.Types.DocumentUnitsVector)">
+            <summary>
+            Translate point by -vector.
+            Returns a point that is equivalent to the result of translating the point by the -vector.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint2d.op_Subtraction(Autodesk.iLogic.Types.DocumentUnitsPoint2d,Autodesk.iLogic.Types.DocumentUnitsPoint2d)">
+            <summary>
+            Get translate vector between two points
+            This operator returns a vector which is equivalent to the translation that takes pointA to pointB.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint2d.Copy">
+            <summary>
+            Creates a copy of this Point object. The result is entirely independent and can be edited without affecting the original Point object.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint2d.DistanceTo(Autodesk.iLogic.Types.DocumentUnitsPoint2d)">
+            <summary>
+            Determine the distance between this point and the specified point.
+            </summary>
+            <param name="point">Input object that specifies the point.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint2d.GetPointData(System.Double[]@)">
+            <summary>
+             Gets the coordinates of the point.
+             </summary>
+            <param name="coords">Output: Double array that will contain the coordinates.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint2d.IsEqualTo(Autodesk.iLogic.Types.DocumentUnitsPoint2d,System.Double)">
+            <summary>
+            Compares this point for equality with the specified point.
+            </summary>
+            <param name="point">Input Point object that specifies the coordinate to compare.</param>
+            <param name="tolerance">Input Double that specifies the tolerance to be used when determining whether the points are equal. This Is an optional argument whose default value Is 0.0.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint2d.PutPointData(System.Double[]@)">
+            <summary>
+            Method that sets the data defining this point.
+            </summary>
+            <param name="coords">Input Double that specifies the entity's coordinates.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint2d.TransformBy(Autodesk.iLogic.Types.DocumentUnitsMatrix2d)">
+            <summary>
+            Transform this point by the specified matrix.
+            </summary>
+            <param name="matrix">Input Matrix object that specifies the matrix to transform by.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint2d.TranslateBy(Autodesk.iLogic.Types.DocumentUnitsVector2d)">
+            <summary>
+            Translate this point by the specified vector.
+            </summary>
+            <param name="vector">Input Vector object that specifies the vector to translate by.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint2d.VectorTo(Autodesk.iLogic.Types.DocumentUnitsPoint2d)">
+            <summary>
+            Gets the vector of translation between this point and the specified point.
+            </summary>
+            <param name="point">Input object that specifies the point.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsPoint2d.ToString">
+            <summary>
+            Returns a string representation of this point.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.DocumentUnitsVector">
+            <summary>
+            Provides properties, functions, and operators for a vector with components in document units.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.#ctor(Inventor.InventorServerObject,Inventor.UnitsOfMeasure,System.Double,System.Double,System.Double)">
+            <summary>
+            Constructor of DocumentUnitsVector.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsVector.InDatabaseUnits">
+            <summary>
+            Gets or sets the vector in Inventor internal database units (centimeters).
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsVector.X">
+            <summary>
+            Gets or sets the X coordinate.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsVector.Y">
+            <summary>
+            Gets or sets the Y coordinate.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsVector.Z">
+            <summary>
+            Gets or sets the Z coordinate.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsVector.Length">
+            <summary>
+            Gets the length of this vector.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.op_Addition(Autodesk.iLogic.Types.DocumentUnitsVector,Autodesk.iLogic.Types.DocumentUnitsVector)">
+            <summary>
+            Add vector to vector.
+            Like AddVector(), but creates a new object.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.op_Subtraction(Autodesk.iLogic.Types.DocumentUnitsVector,Autodesk.iLogic.Types.DocumentUnitsVector)">
+            <summary>
+            Subtract vector from vector.
+            Like SubtractVector(), but creates a new object.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.AddVector(Autodesk.iLogic.Types.DocumentUnitsVector)">
+            <summary>
+            Adds the specified vector to this vector.
+            </summary>
+            <param name="vector">Input to add.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.AngleTo(Autodesk.iLogic.Types.DocumentUnitsVector)">
+            <summary>
+            Determines the angle between this vector and the specified vector. The angle value is in document units.
+            </summary>
+            <param name="vector">Input used for comparison.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.AsUnitVector">
+            <summary>
+            Gets the unit vector equivalent of this vector (normalized).
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.Copy">
+            <summary>
+            Creates a copy of this Vector object. The result is entirely independent and can be edited without affecting the original Vector object.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.CrossProduct(Autodesk.iLogic.Types.DocumentUnitsVector)">
+            <summary>
+            Determine the cross product between this vector and the specified vector.
+            </summary>
+            <param name="vector">Input used for comparison.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.DotProduct(Autodesk.iLogic.Types.DocumentUnitsVector)">
+            <summary>
+            Determine the dot product of this vector to the specified vector.
+            </summary>
+            <param name="vector">Input used for comparison.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.GetVectorData(System.Double[]@)">
+            <summary>
+            Gets the vector coordinates.
+            </summary>
+            <param name="coords">Output: Double array that will contain the coordinates.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.IsEqualTo(Autodesk.iLogic.Types.DocumentUnitsVector,System.Double)">
+            <summary>
+            Compares this vector for equality with the specified point.
+            </summary>
+            <param name="vector">Input used for comparison.</param>
+            <param name="tolerance">Input Double that specifies the tolerance to be used when determining whether the vectors are equal. This Is an optional argument whose default value Is 0.0.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.IsParallelTo(Autodesk.iLogic.Types.DocumentUnitsVector,System.Double)">
+            <summary>
+            Determine if this vector is parallel to the specified vector.
+            </summary>
+            <param name="vector">Input used for comparison.</param>
+            <param name="tolerance">Input Double that specifies the tolerance to be used when determining whether the vectors are parallel. This Is an optional argument whose default value Is 0.0.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.IsPerpendicularTo(Autodesk.iLogic.Types.DocumentUnitsVector,System.Double)">
+            <summary>
+            Determine if this vector is perpendicular to the specified vector.
+            </summary>
+            <param name="vector">Input used for comparison.</param>
+            <param name="tolerance">Input Double that specifies the tolerance to be used when determining whether the vectors are perpendicular. This Is an optional argument whose default value Is 0.0.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.Normalize">
+            <summary>
+            Normalize this vector to result in a length equal to 1.0.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.PutVectorData(System.Double[]@)">
+            <summary>
+            Method that sets the data defining this vector.
+            </summary>
+            <param name="coords">Input Double that specifies the entity's coordinates.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.ScaleBy(System.Double)">
+            <summary>
+            Scale this vector by the specified scale factor.
+            </summary>
+            <param name="scale">Input Double that specifies the scale.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.SubtractVector(Autodesk.iLogic.Types.DocumentUnitsVector)">
+            <summary>
+            Subtract the specified vector from this vector.
+            </summary>
+            <param name="vector">Input to subtract.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.TransformBy(Autodesk.iLogic.Types.DocumentUnitsMatrix)">
+            <summary>
+            Transform this vector by the specified matrix.
+            </summary>
+            <param name="matrix">Input Matrix object that specifies the position and orientation of the occurrence.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector.ToString">
+            <summary>
+            Returns a string representation of this vector.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.AssetWrapper">
+            <summary>
+            iLogic wrapper class for an <c>Inventor.Asset</c>.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.AssetWrapper.#ctor(Inventor.Asset)">
+            <summary>
+            Constructs an AssetWrapper from an <c>Inventor.Asset</c> object.
+            </summary>
+            <param name="asset"></param>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.AssetWrapper.Asset">
+            <summary>
+            Gets the underlying Inventor API asset object.
+            </summary>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.DocumentUnitsVector2d">
+            <summary>
+            Provides properties, functions, and operators for a two-dimensional vector with components in document units.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.#ctor(Inventor.InventorServerObject,Inventor.UnitsOfMeasure,System.Double,System.Double)">
+            <summary>
+            Constructor of DocumentUnitsVector2d.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsVector2d.InDatabaseUnits">
+            <summary>
+            Gets or sets the vector in Inventor internal database units (centimeters).
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsVector2d.X">
+            <summary>
+            Gets or sets the X coordinate.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsVector2d.Y">
+            <summary>
+            Gets or sets the Y coordinate.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DocumentUnitsVector2d.Length">
+            <summary>
+            Gets the length of this vector.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.op_Addition(Autodesk.iLogic.Types.DocumentUnitsVector2d,Autodesk.iLogic.Types.DocumentUnitsVector2d)">
+            <summary>
+            Add vector to vector.
+            Like AddVector(), but creates a new object.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.op_Subtraction(Autodesk.iLogic.Types.DocumentUnitsVector2d,Autodesk.iLogic.Types.DocumentUnitsVector2d)">
+            <summary>
+            Subtract vector from vector.
+            Like SubtractVector(), but creates a new object.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.AddVector(Autodesk.iLogic.Types.DocumentUnitsVector2d)">
+            <summary>
+            Adds the specified vector to this vector.
+            </summary>
+            <param name="vector">Input to add.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.AngleTo(Autodesk.iLogic.Types.DocumentUnitsVector2d)">
+            <summary>
+            Determines the angle between this vector and the specified vector. The angle value is in document units.
+            </summary>
+            <param name="vector">Input used for comparison.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.AsUnitVector">
+            <summary>
+            Gets the unit vector equivalent of this vector (normalized).
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.Copy">
+            <summary>
+            Creates a copy of this Vector object. The result is entirely independent and can be edited without affecting the original Vector object.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.DotProduct(Autodesk.iLogic.Types.DocumentUnitsVector2d)">
+            <summary>
+            Determine the dot product of this vector to the specified vector.
+            </summary>
+            <param name="vector">Input used for comparison.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.GetVectorData(System.Double[]@)">
+            <summary>
+            Gets the vector coordinates.
+            </summary>
+            <param name="coords">Output: Double array that will contain the coordinates.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.IsEqualTo(Autodesk.iLogic.Types.DocumentUnitsVector2d,System.Double)">
+            <summary>
+            Compares this vector for equality with the specified point.
+            </summary>
+            <param name="vector">Input used for comparison.</param>
+            <param name="tolerance">Input Double that specifies the tolerance to be used when determining whether the vectors are equal. This Is an optional argument whose default value Is 0.0.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.IsParallelTo(Autodesk.iLogic.Types.DocumentUnitsVector2d,System.Double)">
+            <summary>
+            Determine if this vector is parallel to the specified vector.
+            </summary>
+            <param name="vector">Input used for comparison.</param>
+            <param name="tolerance">Input Double that specifies the tolerance to be used when determining whether the vectors are parallel. This Is an optional argument whose default value Is 0.0.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.IsPerpendicularTo(Autodesk.iLogic.Types.DocumentUnitsVector2d,System.Double)">
+            <summary>
+            Determine if this vector is perpendicular to the specified vector.
+            </summary>
+            <param name="vector">Input used for comparison.</param>
+            <param name="tolerance">Input Double that specifies the tolerance to be used when determining whether the vectors are perpendicular. This Is an optional argument whose default value Is 0.0.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.Normalize">
+            <summary>
+            Normalize this vector to result in a length equal to 1.0.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.PutVectorData(System.Double[]@)">
+            <summary>
+            Method that sets the data defining this vector.
+            </summary>
+            <param name="coords">Input Double that specifies the entity's coordinates.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.ScaleBy(System.Double)">
+            <summary>
+            Scale this vector by the specified scale factor.
+            </summary>
+            <param name="scale">Input Double that specifies the scale.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.SubtractVector(Autodesk.iLogic.Types.DocumentUnitsVector2d)">
+            <summary>
+            Subtract the specified vector from this vector.
+            </summary>
+            <param name="vector">Input to subtract.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.TransformBy(Autodesk.iLogic.Types.DocumentUnitsMatrix2d)">
+            <summary>
+            Transform this vector by the specified matrix.
+            </summary>
+            <param name="matrix">Input Matrix object that specifies the position and orientation of the occurrence.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DocumentUnitsVector2d.ToString">
+            <summary>
+            Returns a string representation of this vector.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.BalloonPartsListOptions">
+            <summary>
+            Parts-list-related options for balloon creation.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.BalloonPartsListOptions.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.BalloonPartsListOptions.Level">
+            <summary>
+             Sets the view type for the parts list.
+            If supplied, this input is only used in the case where the balloon references an assembly document.
+            If this value was previously set as a result of creating a parts list or a balloon in the drawing based on the same model,
+            this argument is ignored.
+            Use the DrawingDocument.DrawingBOMs.IsDrawingBOMDefined method to check whether or not to supply this argument.
+            Valid enums are: kStructured, that creates a 'first level only' parts list in which a simple integer value is assigned to
+            direct children, kStructuredAllLevels that creates an 'all level' parts list with full expanded numbering, and kPartsOnly,
+            that creates a parts list that sequentially numbers all parts in the top level assembly,
+            even if they are contained in subassemblies.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.BalloonPartsListOptions.NumberingScheme">
+            <summary>
+            Specific options for this level.
+             This argument is ignored if the numbering schemes have already been set for this model as a result of creating a parts list or a balloon
+            based on the same model. Use the DrawingDocument.DrawingBOMs.IsDrawingBOMDefined method to check whether or not to supply this argument.
+            Also, this argument is ignored if the numbering schemes have been defined in the model BOM views.
+            </summary>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.BalloonNumberingOptions">
+            <summary>
+            Balloon numbering options. These are associated with a Level (PartsListLevelEnum).
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.BalloonNumberingOptions.MinimumDigits">
+            <summary>
+            Minimum digits. This is only used if Level is kStructured or kPartsOnly.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.BalloonNumberingOptions.Delimiter">
+            <summary>
+            Delimiter to use between item number levels. This is only used if Level is kStructuredAllLevels.
+            Default : "."
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.BalloonNumberingOptions.NumberingScheme">
+            <summary>
+            Numbering scheme. Valid values for NumberingSchemeEnum are kNumericNumbering, kLowercaseAlphaNumbering and kUppercaseAlphaNumbering.
+            This is used only if Level is kPartsOnly.
+            Default : kNumericNumbering
+            </summary>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.CurveChoiceSpec">
+            <summary>
+            A specification for choice of drawing curve in GetIntent functions.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.CurveChoiceSpec.#ctor(Autodesk.iLogic.Types.DocumentUnitsPoint2d)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.CurveChoiceSpec.Point">
+            <summary>
+            The point.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.CurveChoiceSpec.op_Implicit(Autodesk.iLogic.Types.DocumentUnitsPoint2d)~Autodesk.iLogic.Types.CurveChoiceSpec">
+            <summary>
+            Converts a point.
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.DimensionTextPositionSpec">
+            <summary>
+            The base class for dimension text position specifications.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DimensionTextPositionSpec.#ctor(Autodesk.iLogic.Types.DocumentUnitsPoint2d)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.DimensionTextPositionSpec.Point">
+            <summary>
+            The point.
+            </summary>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.AngularDimensionTextPositionSpec">
+            <summary>
+            A dimension text position specification for angular dimensions.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.AngularDimensionTextPositionSpec.#ctor(Autodesk.iLogic.Types.DocumentUnitsPoint2d)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.AngularDimensionTextPositionSpec.op_Implicit(Autodesk.iLogic.Types.DocumentUnitsPoint2d)~Autodesk.iLogic.Types.AngularDimensionTextPositionSpec">
+            <summary>
+            Converts a point.
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.RadiusDimensionTextPositionSpec">
+            <summary>
+            A dimension text position specification for radius dimensions.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.RadiusDimensionTextPositionSpec.#ctor(Autodesk.iLogic.Types.DocumentUnitsPoint2d)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.RadiusDimensionTextPositionSpec.op_Implicit(Autodesk.iLogic.Types.DocumentUnitsPoint2d)~Autodesk.iLogic.Types.RadiusDimensionTextPositionSpec">
+            <summary>
+            Converts a point.
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.DiameterDimensionTextPositionSpec">
+            <summary>
+            A dimension text position specification for diameter dimensions.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DiameterDimensionTextPositionSpec.#ctor(Autodesk.iLogic.Types.DocumentUnitsPoint2d)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.DiameterDimensionTextPositionSpec.op_Implicit(Autodesk.iLogic.Types.DocumentUnitsPoint2d)~Autodesk.iLogic.Types.DiameterDimensionTextPositionSpec">
+            <summary>
+            Converts a point.
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.LinearDimensionTextPositionSpec">
+            <summary>
+            A specification for the position of linear dimension text on a drawing.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.LinearDimensionTextPositionSpec.#ctor(Autodesk.iLogic.Types.DocumentUnitsPoint2d)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.LinearDimensionTextPositionSpec.#ctor(Autodesk.iLogic.Types.LinearDimensionTextOffset)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="textOffset"></param>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.LinearDimensionTextPositionSpec.Offset">
+            <summary>
+            The text offset.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.LinearDimensionTextPositionSpec.op_Implicit(Autodesk.iLogic.Types.DocumentUnitsPoint2d)~Autodesk.iLogic.Types.LinearDimensionTextPositionSpec">
+            <summary>
+            Converts a point.
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.LinearDimensionTextPositionSpec.op_Implicit(Autodesk.iLogic.Types.LinearDimensionTextOffset)~Autodesk.iLogic.Types.LinearDimensionTextPositionSpec">
+            <summary>
+            Converts an offset.
+            </summary>
+            <param name="offset"></param>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.LinearDimensionTextReference">
+            <summary>
+            Contains a reference point and offset direction that can be used to place linear dimensions.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.LinearDimensionTextReference.#ctor(Inventor.Point2d,Inventor.UnitVector2d)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="point"></param>
+            <param name="offsetDirection"></param>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.LinearDimensionTextReference.Point">
+            <summary>
+            The reference point.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.LinearDimensionTextReference.OffsetDirection">
+            <summary>
+            The offset direction.
+            </summary>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.LinearDimensionTextOffset">
+            <summary>
+            A specification for the position of linear dimension text in a drawing based on offset from a drawing curve.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.LinearDimensionTextOffset.#ctor(Autodesk.iLogic.Types.LinearDimensionTextReference,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="reference">The referenced point/offset direction spec.</param>
+            <param name="offset">
+            The offset step away from the drawing curve:
+            0 : part offset
+            1 : part offset + spacing
+            2 : part offset + 2 * spacing
+            etc.
+            </param>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.LinearDimensionTextOffset.Reference">
+            <summary>
+            Gets the reference.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.LinearDimensionTextOffset.Offset">
+            <summary>
+            Gets the offset.
+            </summary>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.FaceIndexArgument">
+            <summary>
+            A numeric or symbolic face index.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.FaceIndexArgument.Index">
+            <summary>
+            The 1-based index of a face in the collection of faces on a feature.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.FaceIndexArgument.HoleFaceIdentifier">
+            <summary>
+            A symbolic identifier for a face on a hole feature.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.FaceIndexArgument.#ctor(System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.FaceIndexArgument.#ctor(Autodesk.iLogic.Types.HoleFaceIdentifierEnum)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.FaceIndexArgument.op_Implicit(System.Int32)~Autodesk.iLogic.Types.FaceIndexArgument">
+            <summary>
+            Converts an integer index.
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.FaceIndexArgument.op_Implicit(Autodesk.iLogic.Types.HoleFaceIdentifierEnum)~Autodesk.iLogic.Types.FaceIndexArgument">
+            <summary>
+            Converts a hole face identifier.
+            </summary>
+            <param name="holeFaceIdentifier"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.FaceIndexArgument.ToString">
+            <summary>
+            Returns a string representation of this object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.HoleFaceIdentifierEnum">
+            <summary>
+            Identify a face on a hole feature.
+            </summary>
+        </member>
+        <member name="F:Autodesk.iLogic.Types.HoleFaceIdentifierEnum.MainCylinder">
+            <summary>
+            The main cylindrical face.
+            </summary>
+        </member>
+        <member name="F:Autodesk.iLogic.Types.HoleFaceIdentifierEnum.SecondCylinder">
+            <summary>
+            A second cylindrical face, e.g. or a counterbore or spotface.
+            </summary>
+        </member>
+        <member name="F:Autodesk.iLogic.Types.HoleFaceIdentifierEnum.MiddlePlane">
+            <summary>
+            The planar face of a counterbore or spotface.
+            </summary>
+        </member>
+        <member name="F:Autodesk.iLogic.Types.HoleFaceIdentifierEnum.CountersinkCone">
+            <summary>
+            The conical face of a countersink.
+            </summary>
+        </member>
+        <member name="F:Autodesk.iLogic.Types.HoleFaceIdentifierEnum.DrillPointPlane">
+            <summary>
+            The planar face of a flat drill point.
+            </summary>
+        </member>
+        <member name="F:Autodesk.iLogic.Types.HoleFaceIdentifierEnum.DrillPointCone">
+            <summary>
+            The cone face of an angle drill point.
+            </summary>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.PatternFeatureIndexArgument">
+            <summary>
+            Provide ways to specify the index of an occurrence (also known as an element) within a pattern feature.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.PatternFeatureIndexArgument.Index">
+            <summary>
+            The 1-based index of a face in the collection of occurrences in a pattern.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.PatternFeatureIndexArgument.Indices">
+            <summary>
+            A symbolic identifier for a face on a hole feature.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.PatternFeatureIndexArgument.#ctor(System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.PatternFeatureIndexArgument.#ctor(System.Int32[])">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.PatternFeatureIndexArgument.op_Implicit(System.Int32)~Autodesk.iLogic.Types.PatternFeatureIndexArgument">
+            <summary>
+            Converts an integer index.
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.PatternFeatureIndexArgument.op_Implicit(System.Int32[])~Autodesk.iLogic.Types.PatternFeatureIndexArgument">
+            <summary>
+            Converts an array of one or two values.
+            </summary>
+            <param name="indices"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.PatternFeatureIndexArgument.ToString">
+            <summary>
+            Returns a string representation of this object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.ManagedComponentOccurrence">
+            <summary>
+            Provides functions and properties for a managed assembly component occurrence.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ManagedComponentOccurrence.#ctor(Inventor.ComponentOccurrence)">
+            <summary>
+            Constructs an object from an <c>Inventor.ComponentOccurrence</c>.
+            </summary>
+            <param name="occ">The component occurrence.</param>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.ManagedComponentOccurrence.Name">
+            <summary>
+            Gets the component name.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.ManagedComponentOccurrence.Occurrence">
+            <summary>
+            Gets the component occurrence.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ManagedComponentOccurrence.Child(System.String)">
+            <summary>
+            Gets a child component of this occurrence.
+            </summary>
+            <param name="name">The name of the child component.</param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ManagedComponentOccurrence.Parameter(System.String)">
+            <summary>
+            Gets the value of a parameter in the document of the managed occurrence.
+            </summary>
+            <param name="name">The parameter name.</param>
+            <returns>The parameter value. This can be a String, Boolean, or a numeric value (<c>DoubleForEquals</c>)</returns>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.ManagedComponentOccurrence.ParameterProvider">
+            <summary>
+            For internal use.
+            </summary>
+            <remarks>
+            This must be set before using this class.
+            </remarks>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.IManagedComponentParameterProvider">
+            <summary>
+            For internal use.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.IManagedComponentParameterProvider.GetParameters(Inventor.ComponentOccurrence)">
+            <summary>
+            For internal use.
+            </summary>
+            <param name="componentOccurrence"></param>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.IManagedComponentParameters">
+            <summary>
+            For internal use.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.IManagedComponentParameters.GetParameterValue(System.String)">
+            <summary>
+            For internal use.
+            </summary>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.ManagedPattern">
+            <summary>
+            Managed wrapper for an Inventor OccurrencePattern.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.ManagedPattern.#ctor(Inventor.OccurrencePattern)">
+            <summary>
+            Construct a managed pattern from an Inventor.OccurrencePattern.
+            </summary>
+            <param name="pattern"></param>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.ManagedPattern.Element(System.Object)">
+            <summary>
+            Gets an element in the pattern.
+            </summary>
+            <param name="index">The index or name of the element.</param>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.ManagedPattern.Pattern">
+            <summary>
+            Gets the underlying Inventor API pattern object.
+            </summary>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.PointOrMatrix">
+            <summary>
+            A PointOrMatrix class can wrap a DocumentUnitsPoint or a DocumentUnitsMatrix.
+            Only one of Point or Matrix should be non-null.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.PointOrMatrix.Point">
+            <summary>
+            Gets the DocumentUnitsPoint. 
+            (If this is Nothing, use the Matrix property to get the matrix.)
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.PointOrMatrix.Matrix">
+            <summary>
+            Gets the DocumentUnitsMatrix.
+            (If this is Nothing, use the Point property to get the point.)
+            </summary>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.Resources.ExceptionMsgs">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.Resources.ExceptionMsgs.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.Resources.ExceptionMsgs.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.Resources.ExceptionMsgs.UnitsAreNotTheSame">
+            <summary>
+              Looks up a localized string similar to {0} The units of geometries are not the same..
+            </summary>
+        </member>
+        <member name="T:Autodesk.iLogic.Types.StringOrAsset">
+            <summary>
+            Wrapper for an asset object or asset name.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.StringOrAsset.Name">
+            <summary>
+            Gets the name.
+            </summary>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.StringOrAsset.Asset">
+            <summary>
+            Gets the asset object.
+            </summary>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.StringOrAsset.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.StringOrAsset.#ctor(Autodesk.iLogic.Types.AssetWrapper)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="asset"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.StringOrAsset.op_Implicit(System.String)~Autodesk.iLogic.Types.StringOrAsset">
+            <summary>
+            Converts a name.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Autodesk.iLogic.Types.StringOrAsset.op_Implicit(Autodesk.iLogic.Types.AssetWrapper)~Autodesk.iLogic.Types.StringOrAsset">
+            <summary>
+            Converts an asset.
+            </summary>
+            <param name="asset"></param>
+        </member>
+        <member name="P:Autodesk.iLogic.Types.StringOrAsset.IsNull">
+            <summary>
+            Returns true if this object contains no data.
+            </summary>
+        </member>
+    </members>
+</doc>
